@@ -1,5 +1,11 @@
-﻿namespace Bridgeway;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-internal class DefaultBrokerBuilder
+namespace Bridgeway;
+
+internal class DefaultBrokerBuilder(string brokerAlias, IServiceCollection services) : IBrokerBuilder
 {
+    public string BrokerAlias { get; } = brokerAlias;
+
+    public IServiceCollection Services { get; } = services;
 }
+
