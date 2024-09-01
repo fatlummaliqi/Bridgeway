@@ -1,4 +1,4 @@
-﻿namespace Bridgeway.Test.Unit.Brokers;
+﻿namespace Bridgeway.Test.Unit.Helpers.Brokers;
 
 internal class NonAliasedBroker : Broker
 {
