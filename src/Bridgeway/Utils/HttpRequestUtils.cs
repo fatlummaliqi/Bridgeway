@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Net.Mime;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Web;
 
@@ -41,6 +43,33 @@ internal static class HttpRequestUtils
         {
             RequestUri = new Uri(path + stringBuilder.ToString(), UriKind.Relative),
             Method = method
+        };
+    }
+
+    public static HttpRequestMessage BuildJsonEncodedRequest(string path, HttpMethod method, BaseOptions options)
+    {
+        var @params = new Dictionary<string, object>();
+
+        foreach (var prop in options.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public))
+        {
+            if (!prop.CanRead) continue;
+
+            var value = prop.GetValue(options);
+
+            if (value == null) continue;
+
+            var parameterKey = prop.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? prop.Name;
+
+            @params.Add(parameterKey, value);
+        }
+
+        var payload = JsonSerializer.Serialize(@params);
+
+        return new HttpRequestMessage
+        {
+            RequestUri = new Uri(path, UriKind.Relative),
+            Method = method,
+            Content = new StringContent(payload, Encoding.UTF8, MediaTypeNames.Application.Json)
         };
     }
 }
