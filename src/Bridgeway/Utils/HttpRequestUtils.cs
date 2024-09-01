@@ -10,7 +10,7 @@ namespace Bridgeway;
 
 internal static class HttpRequestUtils
 {
-    public static HttpRequestMessage BuildUrlEncoedRequest(string path, HttpMethod method, BaseOptions options)
+    public static HttpRequestMessage BuildUrlEncodedRequest(string path, HttpMethod method, BaseOptions options)
     {
         var stringBuilder = new StringBuilder("?");
 

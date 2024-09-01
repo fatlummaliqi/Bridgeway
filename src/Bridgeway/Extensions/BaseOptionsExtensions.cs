@@ -19,7 +19,7 @@ internal static class BaseOptionsExtensions
 
         return options switch
         {
-            IUrlEncoded => HttpRequestUtils.BuildUrlEncoedRequest(path, method, options),
+            IUrlEncoded => HttpRequestUtils.BuildUrlEncodedRequest(path, method, options),
             IJsonEncoded => HttpRequestUtils.BuildJsonEncodedRequest(path, method, options),
             _ => throw new NotSupportedException("Not supported request options encoding.")
         };
