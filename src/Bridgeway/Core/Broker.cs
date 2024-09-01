@@ -1,6 +1,5 @@
 ﻿namespace Bridgeway;
 
-public class Class1
+public abstract class Broker
 {
-
 }
