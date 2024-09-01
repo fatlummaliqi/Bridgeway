@@ -7,11 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E4CB08CB-1C2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F0FFCB58-1D62-4516-9E53-D68FDC88B0FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridgeway", "src\Bridgeway\Bridgeway.csproj", "{3733BA53-C688-4AD2-9CC4-8EC666C40D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridgeway", "src\Bridgeway\Bridgeway.csproj", "{3733BA53-C688-4AD2-9CC4-8EC666C40D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridgeway.Test.Unit", "test\Bridgeway.Test.Unit\Bridgeway.Test.Unit.csproj", "{7F59AB76-BF2E-4EB2-A23F-1E1699949D95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridgeway.Test.Unit", "test\Bridgeway.Test.Unit\Bridgeway.Test.Unit.csproj", "{7F59AB76-BF2E-4EB2-A23F-1E1699949D95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridgeway.Test.Acceptance", "test\Bridgeway.Test.Acceptance\Bridgeway.Test.Acceptance.csproj", "{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridgeway.Test.Acceptance", "test\Bridgeway.Test.Acceptance\Bridgeway.Test.Acceptance.csproj", "{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bridgeway.Test.Integration", "test\Bridgeway.Test.Integration\Bridgeway.Test.Integration.csproj", "{6A316B30-E415-49D2-BB14-EA2D3CDB630F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A316B30-E415-49D2-BB14-EA2D3CDB630F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A316B30-E415-49D2-BB14-EA2D3CDB630F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A316B30-E415-49D2-BB14-EA2D3CDB630F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A316B30-E415-49D2-BB14-EA2D3CDB630F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,9 @@ Global
 		{3733BA53-C688-4AD2-9CC4-8EC666C40D6A} = {E4CB08CB-1C2C-4387-98B9-070E15EC9644}
 		{7F59AB76-BF2E-4EB2-A23F-1E1699949D95} = {F0FFCB58-1D62-4516-9E53-D68FDC88B0FF}
 		{80C9562B-1CDB-45FF-BBC6-A76A73A0F2B6} = {F0FFCB58-1D62-4516-9E53-D68FDC88B0FF}
+		{6A316B30-E415-49D2-BB14-EA2D3CDB630F} = {F0FFCB58-1D62-4516-9E53-D68FDC88B0FF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40AFF132-F390-4D1D-B729-50F763D56817}
 	EndGlobalSection
 EndGlobal
