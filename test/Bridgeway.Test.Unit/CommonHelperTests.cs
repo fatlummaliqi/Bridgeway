@@ -27,6 +27,6 @@ public class CommonHelperTests
         //assert
         Assert.NotNull(alias);
         Assert.NotEmpty(alias);
-        Assert.Matches(ExpectedBrokerAlias, alias);
+        Assert.Equal(ExpectedBrokerAlias, alias);
     }
 }

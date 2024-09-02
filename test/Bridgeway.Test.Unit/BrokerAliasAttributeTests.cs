@@ -12,7 +12,7 @@ public class BrokerAliasAttributeTests
         Action action = () => new BrokerAliasAttribute(alias);
 
         //assert
-        Assert.Throws<ArgumentNullException>(action);   
+        Assert.Throws<ArgumentException>(action);   
     }
 
     [Fact]
@@ -25,6 +25,6 @@ public class BrokerAliasAttributeTests
         Action action = () => new BrokerAliasAttribute(alias);
 
         //assert
-        Assert.Throws<ArgumentNullException>(action);
+        Assert.Throws<ArgumentException>(action);
     }
 }
