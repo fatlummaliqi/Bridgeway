@@ -8,7 +8,7 @@ namespace Bridgeway.Test.Unit;
 public class HttpContentUtilsTests
 {
     [Fact]
-    public void ProcessPayloadAsync_ShouldThrow_NotSupportedException()
+    public async Task ProcessPayloadAsync_ShouldThrow_NotSupportedException()
     {
         //arrange
         var httpContent = new StringContent("hello world", Encoding.UTF8, MediaTypeNames.Text.Plain);
@@ -17,11 +17,11 @@ public class HttpContentUtilsTests
         var action = () => HttpContentUtils.ProcessPayloadAsync(httpContent, destinationType: typeof(string));
 
         //assert
-        Assert.ThrowsAsync<NotSupportedException>(action);
+        await Assert.ThrowsAsync<NotSupportedException>(action);
     }
 
     [Fact]
-    public void ProcessPayloadAsync_ShouldThrow_BrokerException()
+    public async Task ProcessPayloadAsync_ShouldThrow_BrokerException()
     {
         //arrange
         var httpContent = new StringContent("invalid json encoding", Encoding.UTF8, MediaTypeNames.Application.Json);
@@ -30,7 +30,7 @@ public class HttpContentUtilsTests
         var action = () => HttpContentUtils.ProcessPayloadAsync(httpContent, destinationType: typeof(string));
 
         //assert
-        Assert.ThrowsAsync<BrokerException>(action);
+        await Assert.ThrowsAsync<BrokerException>(action);
     }
 
     [Fact]

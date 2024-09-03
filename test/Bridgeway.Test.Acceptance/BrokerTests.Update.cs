@@ -26,4 +26,23 @@ public partial class BrokerTests
         Assert.Equal(options.UserId, todo.UserId);
         Assert.Equal(todoId, todo.Id);
     }
+
+    [Fact]
+    public async Task UpdateAsync_ShouldThrow_BrokerException()
+    {
+        //arrange 
+        var todoId = 0;
+        var options = new UpsertTodoOptions
+        {
+            Title = "Hello World",
+            Completed = true,
+            UserId = 321
+        };
+
+        //act
+        var action = () => Broker.UpdateAsync(todoId, options);
+
+        //assert
+        await Assert.ThrowsAsync<BrokerException>(action);
+    }
 }
