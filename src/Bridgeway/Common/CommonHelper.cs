@@ -2,7 +2,7 @@
 
 namespace Bridgeway.Common;
 
-public static class CommonHelper
+internal static class CommonHelper
 {
     public static string GetBrokerAlias<TBroker>() where TBroker : Broker
     {

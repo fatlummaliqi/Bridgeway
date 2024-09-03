@@ -1,5 +1,8 @@
 ﻿namespace Bridgeway;
 
+/// <summary>
+/// The exception that is thrown when a failure appeared in a broker operation.
+/// </summary>
 public class BrokerException : Exception
 {
     public HttpResponseMessage? FailureResponse { get; }
