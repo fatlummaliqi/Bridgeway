@@ -20,6 +20,8 @@ public abstract class Broker(IHttpClientFactory httpClientFactory)
 
         var response = client.Send(request);
 
+        EnsureSuccessStatusCode(response);
+
         return response;
     }
 
@@ -31,6 +33,8 @@ public abstract class Broker(IHttpClientFactory httpClientFactory)
 
         var response = await client.SendAsync(request, cancellationToken);
 
+        EnsureSuccessStatusCode(response);
+
         return response;
     }
 
@@ -41,6 +45,8 @@ public abstract class Broker(IHttpClientFactory httpClientFactory)
         var client = httpClientFactory.CreateClient(Alias);
 
         var response = client.Send(request);
+
+        EnsureSuccessStatusCode(response);
 
         return (T)HttpContentUtils.ProcessPayloadAsync(response.Content, typeof(T))
             .GetAwaiter()
@@ -55,6 +61,16 @@ public abstract class Broker(IHttpClientFactory httpClientFactory)
 
         var response = await client.SendAsync(request, cancellationToken);
 
+        EnsureSuccessStatusCode(response);
+
         return (T)await HttpContentUtils.ProcessPayloadAsync(response.Content, typeof(T), cancellationToken);
+    }
+
+    private static void EnsureSuccessStatusCode(HttpResponseMessage response)
+    {
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new BrokerException($"Couldn't process response. Server responded with {response.StatusCode} status code.");
+        }
     }
 }
