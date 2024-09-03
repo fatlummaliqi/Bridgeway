@@ -70,7 +70,7 @@ public abstract class Broker(IHttpClientFactory httpClientFactory)
     {
         if (!response.IsSuccessStatusCode)
         {
-            throw new BrokerException($"Couldn't process response. Server responded with {response.StatusCode} status code.");
+            throw new BrokerException($"Couldn't process response. Server responded with {response.StatusCode} status code.", response);
         }
     }
 }
