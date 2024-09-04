@@ -28,7 +28,9 @@ public static class ServiceCollectionExtensions
     {
         var brokerAlias = CommonHelper.GetBrokerAlias<TImplementation>();
 
-        services.AddHttpClient(brokerAlias, configureClient);
+        services
+            .AddHttpClient(brokerAlias, configureClient)
+            .AddHttpMessageHandler(sp => new AuthorizationHandler(sp));
         services.AddScoped(typeof(TService), typeof(TImplementation));
 
         return new DefaultBrokerBuilder(brokerAlias, services);
@@ -54,7 +56,9 @@ public static class ServiceCollectionExtensions
     {
         var brokerAlias = CommonHelper.GetBrokerAlias<TImplementation>();
 
-        services.AddHttpClient(brokerAlias, configureClient);
+        services
+            .AddHttpClient(brokerAlias, configureClient)
+            .AddHttpMessageHandler(sp => new AuthorizationHandler(sp));
         services.AddScoped<TImplementation>();
 
         return new DefaultBrokerBuilder(brokerAlias, services);
